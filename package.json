@@ -17,6 +17,7 @@
     "bpmn-js": "^6.1.1",
     "bpmn-js-properties-panel": "^0.33.1",
     "camunda-bpmn-moddle": "^4.3.0",
+    "element-ui": "^2.13.0",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
