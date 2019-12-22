@@ -214,11 +214,11 @@ export default {
       this.bpmnModeler.on("selection.changed", e => {
         const element = e.newSelection[0];
         this.element = element;
-        console.log(this.element);
         if (!element) return;
-        if (element.businessObject.$type === "bpmn:UserTask") {
-          this.dialogFormVisible = true;
-        }
+        // console.log(element.businessObject);
+        // if (element.businessObject.$type === "bpmn:UserTask") {
+        //   this.dialogFormVisible = true;
+        // }
 
         // this.$message({
         //   message: "当前内容：" + element.businessObject.name,
@@ -245,6 +245,34 @@ export default {
         //   this.form = { ...this.form };
         // }
       });
+
+      //自定义事件
+      let eventBus = this.bpmnModeler.get("eventBus");
+      // you may hook into any of the following events
+      let events = [
+        "element.hover",
+        "element.out",
+        "element.click",
+        "element.dblclick",
+        "element.mousedown",
+        "element.mouseup"
+      ];
+      let that = this;
+      eventBus.on("element.dblclick", function(e) {
+        that.element = e.element;
+        // console.log(e.element.businessObject);
+        if (e.element.businessObject.$type === "bpmn:UserTask") {
+          that.dialogFormVisible = true;
+        }
+      });
+
+      // events.forEach(function(event) {
+      //   eventBus.on(event, function(e) {
+      //     // e.element 模型元素
+      //     // e.gfx 元素图解
+      //     console.log(event, "on", e.element.id);
+      //   });
+      // });
     }
     // 属性面板名称，更新回流程节点
     // nameChange(name) {
