@@ -1,0 +1,116 @@
+
+#demo4 .djs-palette.two-column.open {
+    width: 110px;
+    height: calc(100% - 35px);
+    overflow-y: auto;
+    position: absolute;
+    padding: 20px 30px;
+    top: 35px;
+    left: 0;
+}
+
+#demo4 .canvas>div>a,
+#demo4 [data-group=tools],
+#demo4 .bpmn-icon-intermediate-event-none,
+#demo4 .bpmn-icon-task,
+#demo4 .bpmn-icon-subprocess-expanded,
+#demo4 .bpmn-icon-data-object,
+#demo4 .bpmn-icon-data-store,
+#demo4 .bpmn-icon-group,
+#demo4 .bpmn-icon-participant,
+#demo4 .bpmn-icon-text-annotation {
+    display: none !important;
+}
+
+#demo4 .djs-popup,
+#demo4 .djs-palette {
+    border: none;
+}
+
+#demo4 .djs-palette .entry,
+#demo4 .djs-palette .djs-palette-toggle {
+    margin-top: 40px;
+}
+
+#demo4 .djs-palette-entries .bpmn-icon-start-event-none:before,
+#demo4 .djs-palette-entries .bpmn-icon-end-event-none:before,
+#demo4 .djs-palette-entries .bpmn-icon-gateway-none:before,
+#demo4 .djs-palette-entries .bpmn-icon-user-task:before {
+    font-size: 50px;
+    cursor: pointer;
+}
+
+
+#demo4 .djs-palette-entries .bpmn-icon-end-event-none:before,
+#demo4 .djs-palette-entries .bpmn-icon-start-event-none:before {
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    border-radius: 50%;
+}
+
+
+#demo4 .djs-palette-entries .bpmn-icon-end-event-none:before {
+
+    background-color: #BFFADA;
+}
+
+#demo4 .djs-palette-entries .bpmn-icon-start-event-none:before {
+    background-color: #BFE6FA;
+}
+
+#demo4 .djs-palette-entries .bpmn-icon-gateway-none {
+    width: 32px !important;
+    height: 32px !important;
+    margin-left: 8px;
+    transform: rotate(45deg);
+    background-color: #FFF1DD;
+}
+
+#demo4 .djs-palette-entries .bpmn-icon-gateway-none:before {
+    color: #FAD37E;
+    margin-top: -8px;
+    margin-left: -8px;
+    transform: rotate(-45deg);
+}
+
+
+
+#demo4 .djs-palette-entries .bpmn-icon-user-task:before {
+    background-color: #EEDDFA;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 10px;
+}
+
+#demo4 .bpmn-icon-user-task:before,
+#demo4 .bpmn-icon-user:before {
+    color: #B483E6;
+}
+
+#demo4 .bpmn-icon-start-event-none:before {
+    color: #0F8CE9;
+
+}
+
+#demo4 .bpmn-icon-end-event-none:before {
+    color: #14CE67;
+
+}
+
+#demo4 .bpmn-icon-gateway-none:before {
+    color: #FAD37E;
+}
+
+#demo4 .bpmn-icon-screw-wrench:before {
+    color: #0034FF;
+}
+
+#demo4 .bpmn-icon-trash:before {
+    color: red;
+}
+
+#demo4 .bpmn-icon-connection-multi:before {
+    color: #8E909B;
+}

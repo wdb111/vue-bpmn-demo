@@ -1,7 +1,8 @@
 <template>
   <div class="containers" ref="content">
     <div class="canvas" ref="canvas"></div>
-    <div id="js-properties-panel" class="panel"></div>
+    <!-- <div id="js-properties-panel" class="panel"></div> -->
+    <panel v-if="bpmnModeler" :modeler="bpmnModeler" />
     <ul class="buttons">
       <li>下载</li>
       <li>
@@ -42,6 +43,7 @@ import BpmnModeler from "bpmn-js/lib/Modeler";
 // import propertiesPanelModule from "bpmn-js-properties-panel";
 import propertiesProviderModule from "bpmn-js-properties-panel/lib/provider/camunda";
 import camundaModdleDescriptor from "camunda-bpmn-moddle/resources/camunda";
+import panel from "./PropertyPanel"; // 属性面板
 
 export default {
   data() {
@@ -66,6 +68,9 @@ export default {
       processName: ""
     };
   },
+  components: {
+    panel
+  },
   methods: {
     createNewDiagram() {
       const bpmnXmlStr = `<?xml version="1.0" encoding="UTF-8"?>
@@ -85,10 +90,6 @@ export default {
       <bpmn2:outgoing>SequenceFlow_0s7xgeq</bpmn2:outgoing>
     </bpmn2:exclusiveGateway>
     <bpmn2:sequenceFlow id="SequenceFlow_1i99umy" sourceRef="Task_0r1jhgy" targetRef="ExclusiveGateway_1300i73" />
-    <bpmn2:task id="Task_1vypdv5" name="总部审批">
-      <bpmn2:incoming>SequenceFlow_02wn0ed</bpmn2:incoming>
-      <bpmn2:outgoing>SequenceFlow_0erlkl4</bpmn2:outgoing>
-    </bpmn2:task>
     <bpmn2:sequenceFlow id="SequenceFlow_02wn0ed" name="大于十天" sourceRef="ExclusiveGateway_1300i73" targetRef="Task_1vypdv5" />
     <bpmn2:sequenceFlow id="SequenceFlow_0s7xgeq" name="小于十天" sourceRef="ExclusiveGateway_1300i73" targetRef="Task_1470v5j" />
     <bpmn2:endEvent id="EndEvent_0lupkw8" name="结束">
@@ -101,67 +102,71 @@ export default {
       <bpmn2:outgoing>SequenceFlow_1sr2dbl</bpmn2:outgoing>
     </bpmn2:userTask>
     <bpmn2:sequenceFlow id="SequenceFlow_1sr2dbl" sourceRef="Task_1470v5j" targetRef="EndEvent_0lupkw8" />
+    <bpmn2:userTask id="Task_1vypdv5" name="总部审批">
+      <bpmn2:incoming>SequenceFlow_02wn0ed</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0erlkl4</bpmn2:outgoing>
+    </bpmn2:userTask>
   </bpmn2:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
-        <dc:Bounds x="422" y="342" width="36" height="36" />
+        <dc:Bounds x="212" y="302" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="429" y="385" width="22" height="14" />
+          <dc:Bounds x="219" y="345" width="22" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Task_0r1jhgy_di" bpmnElement="Task_0r1jhgy">
-        <dc:Bounds x="590" y="320" width="100" height="80" />
+        <dc:Bounds x="330" y="280" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_0z01mg5_di" bpmnElement="SequenceFlow_0z01mg5">
-        <di:waypoint x="458" y="360" />
-        <di:waypoint x="590" y="360" />
+        <di:waypoint x="248" y="320" />
+        <di:waypoint x="330" y="320" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="ExclusiveGateway_1300i73_di" bpmnElement="ExclusiveGateway_1300i73" isMarkerVisible="true">
-        <dc:Bounds x="785" y="335" width="50" height="50" />
+        <dc:Bounds x="495" y="295" width="50" height="50" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="650" y="203" width="46" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_1i99umy_di" bpmnElement="SequenceFlow_1i99umy">
-        <di:waypoint x="690" y="360" />
-        <di:waypoint x="785" y="360" />
+        <di:waypoint x="430" y="320" />
+        <di:waypoint x="495" y="320" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="Task_1vypdv5_di" bpmnElement="Task_1vypdv5">
-        <dc:Bounds x="1040" y="130" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_02wn0ed_di" bpmnElement="SequenceFlow_02wn0ed">
-        <di:waypoint x="810" y="335" />
-        <di:waypoint x="810" y="170" />
-        <di:waypoint x="1040" y="170" />
+        <di:waypoint x="520" y="295" />
+        <di:waypoint x="520" y="170" />
+        <di:waypoint x="630" y="170" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="903" y="152" width="44" height="14" />
+          <dc:Bounds x="553" y="152" width="44" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_0s7xgeq_di" bpmnElement="SequenceFlow_0s7xgeq">
-        <di:waypoint x="835" y="360" />
-        <di:waypoint x="1040" y="360" />
+        <di:waypoint x="545" y="320" />
+        <di:waypoint x="630" y="320" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="903" y="373" width="44" height="14" />
+          <dc:Bounds x="558" y="303" width="44" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="EndEvent_0lupkw8_di" bpmnElement="EndEvent_0lupkw8">
-        <dc:Bounds x="1282" y="342" width="36" height="36" />
+        <dc:Bounds x="782" y="302" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1289" y="385" width="22" height="14" />
+          <dc:Bounds x="789" y="345" width="22" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_0erlkl4_di" bpmnElement="SequenceFlow_0erlkl4">
-        <di:waypoint x="1090" y="210" />
-        <di:waypoint x="1090" y="320" />
+        <di:waypoint x="680" y="210" />
+        <di:waypoint x="680" y="280" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="UserTask_0xqe5og_di" bpmnElement="Task_1470v5j">
-        <dc:Bounds x="1040" y="320" width="100" height="80" />
+        <dc:Bounds x="630" y="280" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_1sr2dbl_di" bpmnElement="SequenceFlow_1sr2dbl">
-        <di:waypoint x="1140" y="360" />
-        <di:waypoint x="1282" y="360" />
+        <di:waypoint x="730" y="320" />
+        <di:waypoint x="782" y="320" />
       </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="UserTask_0zdbzbq_di" bpmnElement="Task_1vypdv5">
+        <dc:Bounds x="630" y="130" width="100" height="80" />
+      </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn2:definitions>

@@ -153,10 +153,10 @@ export default {
         this.element = element;
         console.log(this.element);
         if (!element) return;
-        this.$message({
-          message:"出发点击事件",
-          type:"success"
-        })
+        // this.$message({
+        //   message:"出发点击事件",
+        //   type:"success"
+        // })
         this.form = {
           ...element.businessObject,
           ...element.businessObject.$attrs
@@ -219,7 +219,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .property-panel {
   position: absolute;
   right: 0px;
