@@ -15,7 +15,9 @@
     export default {
         name: "Index",
         data() {
-            return {}
+            return {
+
+            }
         },
       methods:{
         click_one(){
