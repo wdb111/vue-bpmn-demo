@@ -6,7 +6,9 @@ import {
 
 import inherits from 'inherits';
 
-import { is } from '../../util/ModelUtil';
+import {
+  is
+} from '../../util/ModelUtil';
 
 import {
   isExpanded
@@ -20,7 +22,7 @@ import {
 
 
 /**
- * A bpmn-aware factory for diagram-js shapes
+ * A bpmn-aware factory for diagram-js shapes 一个支持bpmn的工厂，用于绘制js形状
  */
 export default function ElementFactory(bpmnFactory, moddle, translate) {
   BaseElementFactory.call(this);
@@ -40,21 +42,26 @@ ElementFactory.$inject = [
 
 ElementFactory.prototype.baseCreate = BaseElementFactory.prototype.create;
 
-ElementFactory.prototype.create = function(elementType, attrs) {
+ElementFactory.prototype.create = function (elementType, attrs) {
 
   // no special magic for labels,
   // we assume their businessObjects have already been created
   // and wired via attrs
+  //标签没有特殊的魔力，
+  //我们假设他们的业务对象已经创建
+  //通过attrs连接
   if (elementType === 'label') {
-    return this.baseCreate(elementType, assign({ type: 'label' }, DEFAULT_LABEL_SIZE, attrs));
+    return this.baseCreate(elementType, assign({
+      type: 'label'
+    }, DEFAULT_LABEL_SIZE, attrs));
   }
 
   return this.createBpmnElement(elementType, attrs);
 };
 
-ElementFactory.prototype.createBpmnElement = function(elementType, attrs) {
+ElementFactory.prototype.createBpmnElement = function (elementType, attrs) {
   var size,
-      translate = this._translate;
+    translate = this._translate;
 
   attrs = attrs || {};
 
@@ -113,7 +120,7 @@ ElementFactory.prototype.createBpmnElement = function(elementType, attrs) {
   }
 
   var eventDefinitions,
-      newEventDefinition;
+    newEventDefinition;
 
   if (attrs.eventDefinitionType) {
     eventDefinitions = businessObject.get('eventDefinitions') || [];
@@ -142,77 +149,120 @@ ElementFactory.prototype.createBpmnElement = function(elementType, attrs) {
 };
 
 
-ElementFactory.prototype._getDefaultSize = function(semantic) {
+ElementFactory.prototype._getDefaultSize = function (semantic) {
 
   if (is(semantic, 'bpmn:SubProcess')) {
 
     if (isExpanded(semantic)) {
-      return { width: 350, height: 200 };
+      return {
+        width: 350,
+        height: 200
+      };
     } else {
-      return { width: 100, height: 80 };
+      return {
+        width: 100,
+        height: 80
+      };
     }
   }
 
   if (is(semantic, 'bpmn:Task')) {
-    return { width: 100, height: 80 };
+    return {
+      width: 100,
+      height: 80
+    };
   }
 
   if (is(semantic, 'bpmn:Gateway')) {
-    return { width: 60, height: 60 };
+    return {
+      width: 60,
+      height: 60
+    };
   }
 
   if (is(semantic, 'bpmn:Event')) {
-    return { width: 50, height: 50 };
+    return {
+      width: 50,
+      height: 50
+    };
   }
 
   if (is(semantic, 'bpmn:Participant')) {
     if (isExpanded(semantic)) {
-      return { width: 600, height: 250 };
+      return {
+        width: 600,
+        height: 250
+      };
     } else {
-      return { width: 400, height: 60 };
+      return {
+        width: 400,
+        height: 60
+      };
     }
   }
 
   if (is(semantic, 'bpmn:Lane')) {
-    return { width: 400, height: 100 };
+    return {
+      width: 400,
+      height: 100
+    };
   }
 
   if (is(semantic, 'bpmn:DataObjectReference')) {
-    return { width: 36, height: 50 };
+    return {
+      width: 36,
+      height: 50
+    };
   }
 
   if (is(semantic, 'bpmn:DataStoreReference')) {
-    return { width: 50, height: 50 };
+    return {
+      width: 50,
+      height: 50
+    };
   }
 
   if (is(semantic, 'bpmn:TextAnnotation')) {
-    return { width: 100, height: 30 };
+    return {
+      width: 100,
+      height: 30
+    };
   }
 
   if (is(semantic, 'bpmn:Group')) {
-    return { width: 300, height: 300 };
+    return {
+      width: 300,
+      height: 300
+    };
   }
 
-  return { width: 100, height: 80 };
+  return {
+    width: 100,
+    height: 80
+  };
 };
 
 
 /**
- * Create participant.
+ * Create participant. 创建的参与者。
  *
  * @param {boolean|Object} [attrs] attrs
  *
  * @returns {djs.model.Shape}
  */
-ElementFactory.prototype.createParticipantShape = function(attrs) {
+ElementFactory.prototype.createParticipantShape = function (attrs) {
 
   if (!isObject(attrs)) {
-    attrs = { isExpanded: attrs };
+    attrs = {
+      isExpanded: attrs
+    };
   }
 
-  attrs = assign({ type: 'bpmn:Participant' }, attrs || {});
+  attrs = assign({
+    type: 'bpmn:Participant'
+  }, attrs || {});
 
-  // participants are expanded by default
+  // participants are expanded by default默认情况下会扩展参与者
   if (attrs.isExpanded !== false) {
     attrs.processRef = this._bpmnFactory.create('bpmn:Process');
   }
@@ -226,6 +276,8 @@ ElementFactory.prototype.createParticipantShape = function(attrs) {
 /**
  * Apply attributes from a map to the given element,
  * remove attribute from the map on application.
+ *应用映射到给定元素的属性，
+ *从应用地图上移除属性。
  *
  * @param {Base} element
  * @param {Object} attrs (in/out map of attributes)
@@ -233,7 +285,7 @@ ElementFactory.prototype.createParticipantShape = function(attrs) {
  */
 function applyAttributes(element, attrs, attributeNames) {
 
-  forEach(attributeNames, function(property) {
+  forEach(attributeNames, function (property) {
     if (attrs[property] !== undefined) {
       applyAttribute(element, attrs, property);
     }

@@ -28,9 +28,8 @@ export default function TextRenderer(config) {
   });
 
   /**
-   * Get the new bounds of an externally rendered,
-   * layouted label.
-   *
+   * Get the new bounds of an externally rendered,获取外部渲染的新边界，
+   * layouted label.布局标签。
    * @param  {Bounds} bounds
    * @param  {String} text
    *
@@ -48,7 +47,7 @@ export default function TextRenderer(config) {
       style: externalStyle
     });
 
-    // resize label shape to fit label text
+    // resize label shape to fit label text 调整标签形状以适应标签文本
     return {
       x: Math.round(bounds.x + bounds.width / 2 - layoutedDimensions.width / 2),
       y: Math.round(bounds.y),
@@ -59,7 +58,7 @@ export default function TextRenderer(config) {
   };
 
   /**
-   * Get the new bounds of text annotation.
+   * Get the new bounds of text annotation.获取文本注释的新边界。
    *
    * @param  {Bounds} bounds
    * @param  {String} text
@@ -84,7 +83,7 @@ export default function TextRenderer(config) {
   };
 
   /**
-   * Create a layouted text element.
+   * Create a layouted text element.创建一个分层的文本元素。
    *
    * @param {String} text
    * @param {Object} [options]
@@ -96,14 +95,14 @@ export default function TextRenderer(config) {
   };
 
   /**
-   * Get default text style.
+   * Get default text style. 获取默认文本样式。
    */
   this.getDefaultStyle = function() {
     return defaultStyle;
   };
 
   /**
-   * Get the external text style.
+   * Get the external text style.获取外部文本样式。
    */
   this.getExternalStyle = function() {
     return externalStyle;

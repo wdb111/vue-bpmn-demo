@@ -88,14 +88,23 @@
 #demo4 .bpmn-icon-user:before {
     color: #B483E6;
 }
-
-#demo4 .bpmn-icon-start-event-none:before {
+#demo4 .bpmn-icon-start-event-none:before,
+#demo4 .bpmn-icon-start-event-message:before,
+#demo4 .bpmn-icon-start-event-timer:before,
+#demo4 .bpmn-icon-start-event-condition:before,
+#demo4 .bpmn-icon-start-event-signal:before {
     color: #0F8CE9;
 
 }
 
-#demo4 .bpmn-icon-end-event-none:before {
-    color: #14CE67;
+#demo4 .bpmn-icon-end-event-none:before,
+#demo4 .bpmn-icon-end-event-message:before,
+#demo4 .bpmn-icon-end-event-escalation:before,
+#demo4 .bpmn-icon-end-event-error:before,
+#demo4 .bpmn-icon-end-event-compensation:before,
+#demo4 .bpmn-icon-end-event-signal:before,
+#demo4 .bpmn-icon-end-event-terminate:before {
+    color: #14CE67 ;
 
 }
 

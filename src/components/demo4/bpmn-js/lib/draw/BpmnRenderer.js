@@ -569,8 +569,8 @@ export default function BpmnRenderer(
         }
       });
 
-      var fill = isThrowing ? getStrokeColor(element, defaultStrokeColor) : getFillColor(element, defaultFillColor);
-      var stroke = isThrowing ? getFillColor(element, defaultFillColor) : getStrokeColor(element, defaultStrokeColor);
+      var fill = isThrowing ? getStrokeColor(element, "#14CE67") : getFillColor(element, "#BCE5FA");
+      var stroke = isThrowing ? getFillColor(element, "#BFFADA") : getStrokeColor(element, "#0F8CE9");
 
       var messagePath = drawPath(parentGfx, pathData, {
         strokeWidth: 1,
@@ -583,8 +583,8 @@ export default function BpmnRenderer(
     'bpmn:TimerEventDefinition': function(parentGfx, element) {
       var circle = drawCircle(parentGfx, element.width, element.height, 0.2 * element.height, {
         strokeWidth: 2,
-        fill: getFillColor(element, defaultFillColor),
-        stroke: getStrokeColor(element, defaultStrokeColor)
+        fill: getFillColor(element, "#BCE5FA"),
+        stroke: getStrokeColor(element, "#0F8CE9")
       });
 
       var pathData = pathMap.getScaledPath('EVENT_TIMER_WH', {
@@ -601,7 +601,7 @@ export default function BpmnRenderer(
       drawPath(parentGfx, pathData, {
         strokeWidth: 2,
         strokeLinecap: 'square',
-        stroke: getStrokeColor(element, defaultStrokeColor)
+        stroke: getStrokeColor(element, "#0F8CE9")
       });
 
       for (var i = 0;i < 12; i++) {
@@ -624,7 +624,7 @@ export default function BpmnRenderer(
           strokeWidth: 1,
           strokeLinecap: 'square',
           transform: 'rotate(' + (i * 30) + ',' + height + ',' + width + ')',
-          stroke: getStrokeColor(element, defaultStrokeColor)
+          stroke: getStrokeColor(element, "#0F8CE9")
         });
       }
 
@@ -646,8 +646,8 @@ export default function BpmnRenderer(
 
       return drawPath(parentGfx, pathData, {
         strokeWidth: 1,
-        fill: fill,
-        stroke: getStrokeColor(event, defaultStrokeColor)
+        fill: "#14CE67",
+        stroke: getStrokeColor(event, "#BFFADA")
       });
     },
     'bpmn:ConditionalEventDefinition': function(parentGfx, event) {
@@ -664,7 +664,7 @@ export default function BpmnRenderer(
 
       return drawPath(parentGfx, pathData, {
         strokeWidth: 1,
-        stroke: getStrokeColor(event, defaultStrokeColor)
+        stroke: getStrokeColor(event, "#0F8CE9")
       });
     },
     'bpmn:LinkEventDefinition': function(parentGfx, event, isThrowing) {
@@ -683,8 +683,8 @@ export default function BpmnRenderer(
 
       return drawPath(parentGfx, pathData, {
         strokeWidth: 1,
-        fill: fill,
-        stroke: getStrokeColor(event, defaultStrokeColor)
+        fill: "#BCE5FA",
+        stroke: getStrokeColor(event, "#0F8CE9")
       });
     },
     'bpmn:ErrorEventDefinition': function(parentGfx, event, isThrowing) {
@@ -703,8 +703,8 @@ export default function BpmnRenderer(
 
       return drawPath(parentGfx, pathData, {
         strokeWidth: 1,
-        fill: fill,
-        stroke: getStrokeColor(event, defaultStrokeColor)
+        fill: "#14CE67",
+        stroke: getStrokeColor(event, "#BFFADA")
       });
     },
     'bpmn:CancelEventDefinition': function(parentGfx, event, isThrowing) {
@@ -723,8 +723,8 @@ export default function BpmnRenderer(
 
       var path = drawPath(parentGfx, pathData, {
         strokeWidth: 1,
-        fill: fill,
-        stroke: getStrokeColor(event, defaultStrokeColor)
+        fill: "#BCE5FA",
+        stroke: getStrokeColor(event, "#0F8CE9")
       });
 
       rotate(path, 45);
@@ -747,8 +747,8 @@ export default function BpmnRenderer(
 
       return drawPath(parentGfx, pathData, {
         strokeWidth: 1,
-        fill: fill,
-        stroke: getStrokeColor(event, defaultStrokeColor)
+        fill: "#14CE67",
+        stroke: getStrokeColor(event, "#BFFADA")
       });
     },
     'bpmn:SignalEventDefinition': function(parentGfx, event, isThrowing) {
@@ -763,12 +763,12 @@ export default function BpmnRenderer(
         }
       });
 
-      var fill = isThrowing ? getStrokeColor(event, defaultStrokeColor) : 'none';
-
+      var fill = isThrowing ? getStrokeColor(event, '#14CE67') : '#BCE5FA';
+      var stroke=isThrowing ? getStrokeColor(event, '#BFFADA') : '#0F8CE9';
       return drawPath(parentGfx, pathData, {
         strokeWidth: 1,
         fill: fill,
-        stroke: getStrokeColor(event, defaultStrokeColor)
+        stroke: stroke
       });
     },
     'bpmn:MultipleEventDefinition': function(parentGfx, event, isThrowing) {
@@ -787,7 +787,7 @@ export default function BpmnRenderer(
 
       return drawPath(parentGfx, pathData, {
         strokeWidth: 1,
-        fill: fill
+        fill: "#0F8CE9"
       });
     },
     'bpmn:ParallelMultipleEventDefinition': function(parentGfx, event) {
@@ -804,15 +804,15 @@ export default function BpmnRenderer(
 
       return drawPath(parentGfx, pathData, {
         strokeWidth: 1,
-        fill: getStrokeColor(event, defaultStrokeColor),
-        stroke: getStrokeColor(event, defaultStrokeColor)
+        fill: getStrokeColor(event, "#BCE5FA"),
+        stroke: getStrokeColor(event,  "#0F8CE9")
       });
     },
     'bpmn:EndEvent': function(parentGfx, element) {
       var circle = renderer('bpmn:Event')(parentGfx, element, {
         strokeWidth: 4,
-        fill: getFillColor(element, "#BCFAD8"),
-        stroke: getStrokeColor(element, "#13CE66")
+        fill: getFillColor(element, "#BFFADA"),
+        stroke: getStrokeColor(element, "#14CE67")
       });
 
       renderEventContent(element, parentGfx, true);
@@ -821,9 +821,9 @@ export default function BpmnRenderer(
     },
     'bpmn:TerminateEventDefinition': function(parentGfx, element) {
       var circle = drawCircle(parentGfx, element.width, element.height, 8, {
-        strokeWidth: 4,
-        fill: getStrokeColor(element, defaultStrokeColor),
-        stroke: getStrokeColor(element, defaultStrokeColor)
+        strokeWidth: 5,
+        fill: getStrokeColor(element, "#14CE67"),
+        stroke: getStrokeColor(element, "#BFFADA")
       });
 
       return circle;
@@ -1197,8 +1197,8 @@ export default function BpmnRenderer(
       /* circle path */
       drawCircle(parentGfx, element.width, element.height, element.height * 0.24, {
         strokeWidth: 2.5,
-        fill: getFillColor(element, defaultFillColor),
-        stroke: getStrokeColor(element, defaultStrokeColor)
+        fill: getFillColor(element, "FAD37E"),
+        stroke: getStrokeColor(element, "FAD37E")
       });
 
       return diamond;
@@ -1243,8 +1243,8 @@ export default function BpmnRenderer(
 
       /* complex path */ drawPath(parentGfx, pathData, {
         strokeWidth: 1,
-        fill: getStrokeColor(element, defaultStrokeColor),
-        stroke: getStrokeColor(element, defaultStrokeColor)
+        fill: getStrokeColor(element, "FAD37E"),
+        stroke: getStrokeColor(element, "FAD37E")
       });
 
       return diamond;
@@ -1265,8 +1265,8 @@ export default function BpmnRenderer(
 
       /* parallel path */ drawPath(parentGfx, pathData, {
         strokeWidth: 1,
-        fill: getStrokeColor(element, defaultStrokeColor),
-        stroke: getStrokeColor(element, defaultStrokeColor)
+        fill: getStrokeColor(element, "FAD37E"),
+        stroke: getStrokeColor(element, "FAD37E")
       });
 
       return diamond;
@@ -1280,7 +1280,7 @@ export default function BpmnRenderer(
       /* outer circle path */ drawCircle(parentGfx, element.width, element.height, element.height * 0.20, {
         strokeWidth: 1,
         fill: 'none',
-        stroke: getStrokeColor(element, defaultStrokeColor)
+        stroke: getStrokeColor(element, "FAD37E")
       });
 
       var type = semantic.eventGatewayType;
@@ -1302,7 +1302,7 @@ export default function BpmnRenderer(
         var attrs = {
           strokeWidth: 2,
           fill: getFillColor(element, 'none'),
-          stroke: getStrokeColor(element, defaultStrokeColor)
+          stroke: getStrokeColor(element, "FAD37E")
         };
 
         /* event path */ drawPath(parentGfx, pathData, attrs);
@@ -1333,7 +1333,7 @@ export default function BpmnRenderer(
           svgAttr(innerCircle, {
             strokeWidth: 1,
             fill: 'none',
-            stroke: getStrokeColor(element, defaultStrokeColor)
+            stroke: getStrokeColor(element, "FAD37E")
           });
         }
 
