@@ -1,5 +1,5 @@
 <template>
-  <div class="containers" ref="content">
+  <div id="demo3" class="containers" ref="content">
     <div class="canvas" ref="canvas"></div>
     <div id="js-properties-panel" class="panel"></div>
     <ul class="buttons">
@@ -80,13 +80,97 @@ export default {
     },
     createNewDiagram() {
       let _this = this;
-      const bpmnXmlStr = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-        <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://some-company/schema/bpmn/activiti" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:tns="http://www.activiti.org/test" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.w3.org/1999/XPath" id="m1575598316912" name="" targetNamespace="http://www.activiti.org/test" typeLanguage="http://www.w3.org/2001/XMLSchema">
-          <process id="Process_1d6bkiu" isExecutable="false" isClosed="false" isExecutable="true" processType="None" />
-          <bpmndi:BPMNDiagram id="BPMNDiagram_1">
-            <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1d6bkiu" />
-          </bpmndi:BPMNDiagram>
-        </definitions>
+      const bpmnXmlStr = `<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://some-company/schema/bpmn/activiti" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://www.activiti.org/test" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="m1575598316912" name="" targetNamespace="http://www.activiti.org/test">
+  <process id="Process_1d6bkiu" processType="None" isClosed="false" isExecutable="false">
+    <documentation></documentation>
+    <startEvent id="StartEvent_0x0ptw6" name="开始">
+      <documentation></documentation>
+      <extensionElements />
+      <outgoing>SequenceFlow_1xjq5e6</outgoing>
+    </startEvent>
+    <exclusiveGateway id="ExclusiveGateway_0vmukfx">
+      <documentation></documentation>
+      <incoming>SequenceFlow_1xjq5e6</incoming>
+      <outgoing>SequenceFlow_1if0sp3</outgoing>
+      <outgoing>SequenceFlow_1a4g0qc</outgoing>
+    </exclusiveGateway>
+    <sequenceFlow id="SequenceFlow_1xjq5e6" sourceRef="StartEvent_0x0ptw6" targetRef="ExclusiveGateway_0vmukfx" />
+    <userTask id="UserTask_19m4d3i" name="审批人1" activiti:exclusive="true">
+      <documentation></documentation>
+      <extensionElements />
+      <incoming>SequenceFlow_1if0sp3</incoming>
+      <outgoing>SequenceFlow_0463bdv</outgoing>
+    </userTask>
+    <sequenceFlow id="SequenceFlow_1if0sp3" sourceRef="ExclusiveGateway_0vmukfx" targetRef="UserTask_19m4d3i" />
+    <endEvent id="EndEvent_0tcwkri" name="结束">
+      <documentation></documentation>
+      <incoming>SequenceFlow_0463bdv</incoming>
+      <incoming>SequenceFlow_0b49jng</incoming>
+    </endEvent>
+    <sequenceFlow id="SequenceFlow_0463bdv" sourceRef="UserTask_19m4d3i" targetRef="EndEvent_0tcwkri" />
+    <userTask id="UserTask_0zw4ovc" name="审批人2" activiti:exclusive="true">
+      <documentation></documentation>
+      <extensionElements />
+      <incoming>SequenceFlow_1a4g0qc</incoming>
+      <outgoing>SequenceFlow_0b49jng</outgoing>
+    </userTask>
+    <sequenceFlow id="SequenceFlow_1a4g0qc" sourceRef="ExclusiveGateway_0vmukfx" targetRef="UserTask_0zw4ovc" />
+    <sequenceFlow id="SequenceFlow_0b49jng" sourceRef="UserTask_0zw4ovc" targetRef="EndEvent_0tcwkri" />
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1d6bkiu">
+      <bpmndi:BPMNShape id="StartEvent_0x0ptw6_di" bpmnElement="StartEvent_0x0ptw6">
+        <omgdc:Bounds x="522" y="162" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="529" y="205" width="22" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ExclusiveGateway_0vmukfx_di" bpmnElement="ExclusiveGateway_0vmukfx" isMarkerVisible="true">
+        <omgdc:Bounds x="615" y="155" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1xjq5e6_di" bpmnElement="SequenceFlow_1xjq5e6">
+        <omgdi:waypoint x="558" y="180" />
+        <omgdi:waypoint x="615" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="UserTask_19m4d3i_di" bpmnElement="UserTask_19m4d3i">
+        <omgdc:Bounds x="730" y="60" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1if0sp3_di" bpmnElement="SequenceFlow_1if0sp3">
+        <omgdi:waypoint x="640" y="155" />
+        <omgdi:waypoint x="640" y="100" />
+        <omgdi:waypoint x="730" y="100" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="EndEvent_0tcwkri_di" bpmnElement="EndEvent_0tcwkri">
+        <omgdc:Bounds x="972" y="162" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="979" y="205" width="22" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0463bdv_di" bpmnElement="SequenceFlow_0463bdv">
+        <omgdi:waypoint x="830" y="100" />
+        <omgdi:waypoint x="900" y="100" />
+        <omgdi:waypoint x="900" y="180" />
+        <omgdi:waypoint x="972" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="UserTask_0zw4ovc_di" bpmnElement="UserTask_0zw4ovc">
+        <omgdc:Bounds x="730" y="220" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1a4g0qc_di" bpmnElement="SequenceFlow_1a4g0qc">
+        <omgdi:waypoint x="640" y="205" />
+        <omgdi:waypoint x="640" y="260" />
+        <omgdi:waypoint x="730" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0b49jng_di" bpmnElement="SequenceFlow_0b49jng">
+        <omgdi:waypoint x="830" y="260" />
+        <omgdi:waypoint x="900" y="260" />
+        <omgdi:waypoint x="900" y="180" />
+        <omgdi:waypoint x="972" y="180" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
+
         `;
       // 将字符串转换成图显示出来
       this.bpmnModeler.importXML(bpmnXmlStr, function(err) {
@@ -184,25 +268,22 @@ export default {
   }
 };
 </script>
-<style>
-.bpmn-icon-task {
-  /* display: none !important; */
-}
+<style lang="less">
+  //自定义样式
+@import "./css/app.css";
 </style>
-
 <style lang="less">
 /*左边工具栏以及编辑节点的样式*/
 @import "bpmn-js/dist/assets/diagram-js.css";
 @import "bpmn-js/dist/assets/bpmn-font/css/bpmn.css";
 @import "bpmn-js/dist/assets/bpmn-font/css/bpmn-codes.css";
 @import "bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css";
-//自定义样式
-@import "./css/app.css";
+
 .containers {
   position: absolute;
   background-color: #ffffff;
   width: 100%;
-  height: 100%;
+  height: ~"calc(100% - 91px)";
 }
 .canvas {
   width: 100%;

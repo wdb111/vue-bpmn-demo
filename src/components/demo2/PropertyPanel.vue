@@ -227,6 +227,6 @@ export default {
   border-left: 1px solid #cccccc;
   padding: 20px 0;
   width: 300px;
-  height: 100%;
+  height: calc(100% - 40px);
 }
 </style>

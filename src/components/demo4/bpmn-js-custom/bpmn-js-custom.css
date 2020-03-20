@@ -24,6 +24,9 @@
 
 #demo4 .djs-popup,
 #demo4 .djs-palette {
+    width: 120px;
+    left: 0;
+    top: 40px;
     border: none;
 }
 
@@ -36,80 +39,109 @@
 #demo4 .djs-palette-entries .bpmn-icon-end-event-none:before,
 #demo4 .djs-palette-entries .bpmn-icon-gateway-none:before,
 #demo4 .djs-palette-entries .bpmn-icon-user-task:before {
-    font-size: 50px;
+    font-size: 80px;
     cursor: pointer;
 }
 
+#demo4 .djs-palette .entry, 
+#demo4 .djs-palette .djs-palette-toggle{
+width: 120px;
+height: 80px;
+}
 
 #demo4 .djs-palette-entries .bpmn-icon-end-event-none:before,
 #demo4 .djs-palette-entries .bpmn-icon-start-event-none:before {
-    width: 45px;
-    height: 45px;
+    width: 78px;
+    height: 78px;
     text-align: center;
-    line-height: 45px;
     border-radius: 50%;
+}
+#demo4 .djs-palette-entries .bpmn-icon-end-event-none:before {
+    width: 76px;
+    height: 76px;
 }
 
 
 #demo4 .djs-palette-entries .bpmn-icon-end-event-none:before {
 
     background-color: #BFFADA;
+    border: 4px solid #14CE67;
 }
 
 #demo4 .djs-palette-entries .bpmn-icon-start-event-none:before {
     background-color: #BFE6FA;
+    border: 2px solid #0F8CE9;
 }
 
 #demo4 .djs-palette-entries .bpmn-icon-gateway-none {
-    width: 32px !important;
-    height: 32px !important;
-    margin-left: 8px;
-    transform: rotate(45deg);
-    background-color: #FFF1DD;
+    width: 120px ;
+    height: 80px ;
+    /* transform: rotate(45deg); */
+    
 }
-
-#demo4 .djs-palette-entries .bpmn-icon-gateway-none:before {
+#demo4 .djs-popup .bpmn-icon-gateway-xor:before,
+#demo4 .djs-popup .bpmn-icon-gateway-parallel:before,
+#demo4 .djs-popup .bpmn-icon-gateway-or:before,
+#demo4 .djs-popup .bpmn-icon-gateway-complex:before,
+#demo4 .djs-popup .bpmn-icon-gateway-eventbased:before,
+#demo4 .djs-context-pad .bpmn-icon-gateway-none:before {
     color: #FAD37E;
+}
+#demo4 .djs-palette-entries .bpmn-icon-gateway-none:before {
+    /* color: #FAD37E;
     margin-top: -8px;
-    margin-left: -8px;
-    transform: rotate(-45deg);
+    margin-left: -8px;*/
+    width: 55px;
+    height: 55px;
+    transform: rotate(45deg); 
+    border: 2px solid #FAD37E;
+    background-color: #FFF1DD;
 }
 
 
 
 #demo4 .djs-palette-entries .bpmn-icon-user-task:before {
     background-color: #EEDDFA;
-    height: 40px;
-    line-height: 40px;
-    border-radius: 10px;
+    height: 65px;
+    line-height: 65px;
+    border-radius: 20px;
 }
 
 #demo4 .bpmn-icon-user-task:before,
 #demo4 .bpmn-icon-user:before {
     color: #B483E6;
 }
-#demo4 .bpmn-icon-start-event-none:before,
-#demo4 .bpmn-icon-start-event-message:before,
-#demo4 .bpmn-icon-start-event-timer:before,
-#demo4 .bpmn-icon-start-event-condition:before,
-#demo4 .bpmn-icon-start-event-signal:before {
+#demo4 .bpmn-icon-user-task:before{
+    /* color: rgba(0, 0, 0, 0); */
+}
+#demo4 .djs-popup-body .bpmn-icon-start-event-none:before,
+#demo4 .djs-popup-body .bpmn-icon-start-event-message:before,
+#demo4 .djs-popup-body .bpmn-icon-start-event-timer:before,
+#demo4 .djs-popup-body .bpmn-icon-start-event-condition:before,
+#demo4 .djs-popup-body .bpmn-icon-start-event-signal:before {
     color: #0F8CE9;
 
 }
-
-#demo4 .bpmn-icon-end-event-none:before,
-#demo4 .bpmn-icon-end-event-message:before,
-#demo4 .bpmn-icon-end-event-escalation:before,
-#demo4 .bpmn-icon-end-event-error:before,
-#demo4 .bpmn-icon-end-event-compensation:before,
-#demo4 .bpmn-icon-end-event-signal:before,
-#demo4 .bpmn-icon-end-event-terminate:before {
+#demo4 .djs-palette .bpmn-icon-start-event-none:before{
+    color:rgba(0, 0, 0, 0)
+}
+#demo4 .djs-context-pad .bpmn-icon-end-event-none:before,
+#demo4 .djs-popup-body .bpmn-icon-end-event-none:before,
+#demo4 .djs-popup-body .bpmn-icon-end-event-message:before,
+#demo4 .djs-popup-body .bpmn-icon-end-event-escalation:before,
+#demo4 .djs-popup-body .bpmn-icon-end-event-error:before,
+#demo4 .djs-popup-body .bpmn-icon-end-event-compensation:before,
+#demo4 .djs-popup-body .bpmn-icon-end-event-signal:before,
+#demo4 .djs-popup-body .bpmn-icon-end-event-terminate:before {
     color: #14CE67 ;
 
 }
-
+#demo4 .djs-palette .bpmn-icon-end-event-none:before{
+    color:rgba(0, 0, 0, 0)
+}
 #demo4 .bpmn-icon-gateway-none:before {
-    color: #FAD37E;
+    /* color: #FAD37E; */
+    color: rgba(0, 0, 0, 0);
 }
 
 #demo4 .bpmn-icon-screw-wrench:before {

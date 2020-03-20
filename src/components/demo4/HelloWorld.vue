@@ -47,21 +47,88 @@
     methods: {
       createNewDiagram() {
         const bpmnXmlStr = `<?xml version="1.0" encoding="UTF-8"?>
-<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
   <bpmn2:process id="Process_1" isExecutable="false">
-    <bpmn2:startEvent id="StartEvent_1" />
+    <bpmn2:startEvent id="StartEvent_0b8hmmy" name="开始">
+      <bpmn2:outgoing>SequenceFlow_12m2qq7</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:exclusiveGateway id="ExclusiveGateway_06rp6gx">
+      <bpmn2:incoming>SequenceFlow_12m2qq7</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0z91i3a</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_1t8402y</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="SequenceFlow_12m2qq7" sourceRef="StartEvent_0b8hmmy" targetRef="ExclusiveGateway_06rp6gx" />
+    <bpmn2:userTask id="UserTask_0481xfu" name="经理审批">
+      <bpmn2:incoming>SequenceFlow_0z91i3a</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0zk8y4f</bpmn2:outgoing>
+    </bpmn2:userTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_0z91i3a" sourceRef="ExclusiveGateway_06rp6gx" targetRef="UserTask_0481xfu" />
+    <bpmn2:userTask id="UserTask_1f6a42g" name="人事审批">
+      <bpmn2:incoming>SequenceFlow_1t8402y</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_03uzpfh</bpmn2:outgoing>
+    </bpmn2:userTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_1t8402y" sourceRef="ExclusiveGateway_06rp6gx" targetRef="UserTask_1f6a42g" />
+    <bpmn2:endEvent id="EndEvent_1e7b61h" name="结束">
+      <bpmn2:incoming>SequenceFlow_03uzpfh</bpmn2:incoming>
+      <bpmn2:incoming>SequenceFlow_0zk8y4f</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_03uzpfh" sourceRef="UserTask_1f6a42g" targetRef="EndEvent_1e7b61h" />
+    <bpmn2:sequenceFlow id="SequenceFlow_0zk8y4f" sourceRef="UserTask_0481xfu" targetRef="EndEvent_1e7b61h" />
   </bpmn2:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
-      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
-        <dc:Bounds x="232" y="102" width="50" height="50" />
+      <bpmndi:BPMNShape id="StartEvent_0b8hmmy_di" bpmnElement="StartEvent_0b8hmmy">
+        <dc:Bounds x="600" y="270" width="80" height="80" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="239" y="145" width="22" height="14" />
+          <dc:Bounds x="622" y="299" width="35" height="21" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ExclusiveGateway_06rp6gx_di" bpmnElement="ExclusiveGateway_06rp6gx" isMarkerVisible="true">
+        <dc:Bounds x="760" y="270" width="80" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_12m2qq7_di" bpmnElement="SequenceFlow_12m2qq7">
+        <di:waypoint x="680" y="310" />
+        <di:waypoint x="760" y="310" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="UserTask_0481xfu_di" bpmnElement="UserTask_0481xfu">
+        <dc:Bounds x="920" y="150" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0z91i3a_di" bpmnElement="SequenceFlow_0z91i3a">
+        <di:waypoint x="800" y="270" />
+        <di:waypoint x="800" y="190" />
+        <di:waypoint x="920" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="UserTask_1f6a42g_di" bpmnElement="UserTask_1f6a42g">
+        <dc:Bounds x="920" y="370" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1t8402y_di" bpmnElement="SequenceFlow_1t8402y">
+        <di:waypoint x="800" y="350" />
+        <di:waypoint x="800" y="410" />
+        <di:waypoint x="920" y="410" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="EndEvent_1e7b61h_di" bpmnElement="EndEvent_1e7b61h">
+        <dc:Bounds x="1180" y="270" width="80" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1203" y="299" width="33" height="21" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_03uzpfh_di" bpmnElement="SequenceFlow_03uzpfh">
+        <di:waypoint x="1020" y="410" />
+        <di:waypoint x="1110" y="410" />
+        <di:waypoint x="1110" y="310" />
+        <di:waypoint x="1180" y="310" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0zk8y4f_di" bpmnElement="SequenceFlow_0zk8y4f">
+        <di:waypoint x="1020" y="190" />
+        <di:waypoint x="1110" y="190" />
+        <di:waypoint x="1110" y="310" />
+        <di:waypoint x="1180" y="310" />
+      </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn2:definitions>
+
+
 `;
         // 将字符串转换成图显示出来
         this.bpmnModeler.importXML(bpmnXmlStr, function (err) {
@@ -85,8 +152,8 @@
       // 当图发生改变的时候会调用这个函数，这个data就是图的xml
       setEncoded(link, name, data) {
         // 把xml转换为URI，下载要用到的
-        console.log(666666666666666);
-        console.log(data);
+        // console.log(666666666666666);
+        // console.log(data);
         const encodedData = encodeURIComponent(data);
         // 获取到图的xml，保存就是把这个xml提交给后台
         this.xmlStr = data;
@@ -216,7 +283,9 @@
     }
   };
 </script>
-
+<style lang="less">
+ @import "./bpmn-js-custom/bpmn-js-custom.css";
+</style>
 <style lang="less">
   /*左边工具栏以及编辑节点的样式*/
   @import "bpmn-js/dist/assets/diagram-js.css";
@@ -226,13 +295,12 @@
   /*右边工具栏样式*/
   /*@import "bpmn-js-properties-panel/dist/assets/bpmn-js-properties-panel.css";*/
   /*引入自定义css*/
-  @import "./bpmn-js-custom/bpmn-js-custom.css";
 
   .containers {
     position: absolute;
     background-color: #ffffff;
     width: 100%;
-    height: 90%;
+    height: ~"calc(100% - 91px)";
   }
 
   .canvas {

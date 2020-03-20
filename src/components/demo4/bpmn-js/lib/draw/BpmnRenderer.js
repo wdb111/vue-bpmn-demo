@@ -471,7 +471,7 @@ export default function BpmnRenderer(
       align: align,
       padding: 5,
       style: {
-        fill: getStrokeColor(element, defaultStrokeColor)
+        fill: getStrokeColor(element, defaultStrokeColor)//这里可以改变usertask的字体颜色
       }
     });
   }
@@ -550,11 +550,8 @@ export default function BpmnRenderer(
           stroke: getStrokeColor(element, "#0F8CE9")
         };
       }
-
       var circle = renderer('bpmn:Event')(parentGfx, element, attrs);
-
       renderEventContent(element, parentGfx);
-
       return circle;
     },
     'bpmn:MessageEventDefinition': function(parentGfx, element, isThrowing) {
@@ -1224,7 +1221,6 @@ export default function BpmnRenderer(
           stroke: getStrokeColor(element, "#FAD37E")
         });
       }
-
       return diamond;
     },
     'bpmn:ComplexGateway': function(parentGfx, element) {

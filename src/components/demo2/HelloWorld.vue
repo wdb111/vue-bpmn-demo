@@ -1,5 +1,5 @@
 <template>
-  <div class="containers" ref="content">
+  <div id="demo2" class="containers" ref="content">
     <div class="canvas" ref="canvas"></div>
     <!-- <div id="js-properties-panel" class="panel"></div> -->
     <panel v-if="bpmnModeler" :modeler="bpmnModeler" />
@@ -332,7 +332,7 @@ export default {
 };
 </script>
 
-<style scope>
+<style >
 /*左边工具栏以及编辑节点的样式*/
 @import "bpmn-js/dist/assets/diagram-js.css";
 @import "bpmn-js/dist/assets/bpmn-font/css/bpmn.css";
@@ -344,7 +344,7 @@ export default {
   position: absolute;
   background-color: #ffffff;
   width: 100%;
-  height: 90%;
+  height: calc(100% - 91px);
 }
 .canvas {
   width: 100%;

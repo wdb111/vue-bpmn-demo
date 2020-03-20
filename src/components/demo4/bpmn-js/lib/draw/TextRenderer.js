@@ -2,7 +2,7 @@ import { assign } from 'min-dash';
 
 import TextUtil from 'diagram-js/lib/util/Text';
 
-var DEFAULT_FONT_SIZE = 14;
+var DEFAULT_FONT_SIZE = 18;
 var LINE_HEIGHT_RATIO = 1.2;
 
 var MIN_TEXT_ANNOTATION_HEIGHT = 30;
@@ -13,7 +13,7 @@ export default function TextRenderer(config) {
   var defaultStyle = assign({
     fontFamily: 'Arial, sans-serif',
     fontSize: DEFAULT_FONT_SIZE,
-    fontWeight: 'normal',
+    fontWeight: '900',
     lineHeight: LINE_HEIGHT_RATIO
   }, config && config.defaultStyle || {});
 
