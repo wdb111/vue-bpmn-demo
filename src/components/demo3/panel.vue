@@ -195,7 +195,22 @@ export default {
     },
     //用户事件处理
     userTaskHandle(type){
-      this.businessObject.exclusive=true
+      this.businessObject.exclusive=true;
+      //会签功能
+      // let collection="activiti:collection";
+      // let elementVariable="activiti:elementVariable"
+      // let MultiInstanceLoopCharacteristics = this.moddle.create(
+      //   "bpmn:MultiInstanceLoopCharacteristics",
+      //   {
+      //     completionCondition: this.moddle.create("bpmn:FormalExpression", {
+      //       body: "${ done }"
+      //     }),
+      //     isSequential: true,
+      //     [collection]:"users",
+      //     [elementVariable]:"user",
+      //     // behavior: "One"
+      //   }
+      // );
       console.log(type)
     },
     // 含有事件的开始事件处理

@@ -6,6 +6,7 @@ import Demo2 from "@/components/demo2/Helloworld"
 import Demo3 from "@/components/demo3/HelloworldPro"
 import Demo4 from "@/components/demo4/Helloworld"
 
+
 Vue.use(Router)
 
 export default new Router({
@@ -33,6 +34,11 @@ export default new Router({
           path: "/demo4",
           name: "Demo4",
           component: Demo4
+        },
+        {
+          path:"/events",
+          name:"Events",
+          component:()=>import("@/components/events")
         }
 
       ]
