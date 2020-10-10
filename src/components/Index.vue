@@ -7,6 +7,7 @@
       <el-button @click="click_two">普通自定义右侧菜单</el-button>
       <el-button @click="click_three">通过图片自定义样式</el-button>
       <el-button @click="click_four">改变源码自定义样式</el-button>
+      <el-button @click="click_five">不改变源码（只变颜色，不变大小）</el-button>
     </div>
     <router-view></router-view>
   </div>
@@ -33,6 +34,9 @@ export default {
     },
     click_four() {
       this.$router.push("./demo4");
+    },
+    click_five(){
+      this.$router.push("./demo5");
     }
   }
 };
