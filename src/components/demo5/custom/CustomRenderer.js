@@ -20,8 +20,11 @@ const propertiesConfig = {
     strokeWidth: 2
   },
   'bpmn:SequenceFlow': {
-    stroke: "red",
-    fill: "red"
+    stroke: "#CBCBCE",
+  },
+  'bpmn:ExclusiveGateway': {
+    stroke: "#FAD37E",
+    fill: "#FFF1DD",
   }
 }
 
@@ -38,7 +41,9 @@ export default class CustomRenderer extends BaseRenderer {
   }
   drawConnection(parentNode, element) {
     let shape = this.bpmnRenderer.drawConnection(parentNode, element)
-    // console.log(6666,parentNode,element.type)
+    // console.log(parentNode,element.type)
+    setShapeProperties(shape, element) // 在此修改shape
+    return shape
   }
   drawShape(parentNode, element) {
     let shape = this.bpmnRenderer.drawShape(parentNode, element)
@@ -48,7 +53,6 @@ export default class CustomRenderer extends BaseRenderer {
     //     defaultFillColor: "red"
     // })
     setShapeProperties(shape, element) // 在此修改shape
-    // console.log(666,shape.style.fill="red",element.type)
     return shape
   }
 

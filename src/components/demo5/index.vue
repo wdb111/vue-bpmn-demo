@@ -2,6 +2,7 @@
   <div class="containerBox">
     <div class="header">
       <el-button-group>
+         <el-button size="mini" @click="open">说明</el-button>
         <el-button type="primary" size="mini" @click="handleUndo">后退</el-button>
         <el-button type="success" size="mini" @click="handleRedo">前进</el-button>
         <el-button type="warning" size="mini" @click="handleDownload">下载</el-button>
@@ -18,6 +19,7 @@
         >
           <el-button type="danger" size="mini">导入</el-button>
         </el-upload>
+       
       </el-button-group>
     </div>
     <div id="container"></div>
@@ -68,8 +70,8 @@ export default {
     ];
     events.forEach((event) => {
       _this.bpmnModeler.on(event, (e) => {
-        // console.log("事件：", event);
-        // console.log(e.element.type);
+        // console.log("_this.modeling：", _this.modeling);
+        console.log(e.element.type);
         if (event === "connection.added") {
           _this.$nextTick(() => {
             _this.modeling.setColor(e.element, {
@@ -100,6 +102,15 @@ export default {
     this.create();
   },
   methods: {
+    open() {
+            this.$alert(
+                "这种方式是通过自定义属性和事件监听来实现，目前只能改变颜色（个人认为），因为源码中的各个节点尺寸都是写死的（见bpmn-js/lib/features/modeling/ElementFactory.js），不像节点颜色那样有defaultFillColor、defaultStrokeColor",
+                "说明",
+                {
+                    confirmButtonText: "确定",
+                }
+            );
+        },
     create() {
       // 将字符串转换成图显示出来
       // 导入BPMN流程图

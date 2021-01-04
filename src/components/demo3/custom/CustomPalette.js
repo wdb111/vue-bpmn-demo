@@ -22,7 +22,6 @@ export default class CustomPalette {
                     type: 'bpmn:StartEvent',
                     businessObject
                 });
-                console.log(shape) // 只在拖动或者点击时触发
                 create.start(event, shape);
             }
         }
@@ -33,7 +32,6 @@ export default class CustomPalette {
                     type: 'bpmn:EndEvent',
                     businessObject
                 });
-                console.log(shape) // 只在拖动或者点击时触发
                 create.start(event, shape);
             }
         }
@@ -44,7 +42,6 @@ export default class CustomPalette {
                     type: 'bpmn:UserTask',
                     businessObject
                 });
-                console.log(shape) // 只在拖动或者点击时触发
                 create.start(event, shape);
             }
         }
@@ -55,7 +52,6 @@ export default class CustomPalette {
                     type: 'bpmn:ExclusiveGateway',
                     businessObject
                 });
-                console.log(shape) // 只在拖动或者点击时触发
                 create.start(event, shape);
             }
         }
