@@ -6,18 +6,19 @@ const HIGH_PRIORITY = 1500
 const propertiesConfig = {
   'bpmn:StartEvent': {
     fill: '#D8F1FC',
-    stroke: '#0F8CE9',
-    strokeWidth: 2
+    stroke: '#0F8CE9'
+  },
+  'bpmn:Task': {
+    stroke: '#B483E6',
+    fill: "#F3E9FA"
   },
   'bpmn:UserTask': {
     stroke: '#B483E6',
-    fill: "#F3E9FA",
-    strokeWidth: 2,
+    fill: "#F3E9FA"
   },
   'bpmn:EndEvent': {
     stroke: '#14CE67',
-    fill: '#CEFCE4',
-    strokeWidth: 2
+    fill: '#CEFCE4'
   },
   'bpmn:SequenceFlow': {
     stroke: "#CBCBCE",
@@ -31,7 +32,6 @@ const propertiesConfig = {
 export default class CustomRenderer extends BaseRenderer {
   constructor(eventBus, bpmnRenderer) {
     super(eventBus, HIGH_PRIORITY);
-    console.log(bpmnRenderer)
     this.bpmnRenderer = bpmnRenderer;
   }
 
@@ -41,7 +41,6 @@ export default class CustomRenderer extends BaseRenderer {
   }
   drawConnection(parentNode, element) {
     let shape = this.bpmnRenderer.drawConnection(parentNode, element)
-    // console.log(parentNode,element.type)
     setShapeProperties(shape, element) // 在此修改shape
     return shape
   }
@@ -52,6 +51,9 @@ export default class CustomRenderer extends BaseRenderer {
     //   config: {
     //     defaultFillColor: "red"
     // })
+    if (element.type === 'bpmn:EndEvent') {
+      shape.style.strokeWidth = 2
+    }
     setShapeProperties(shape, element) // 在此修改shape
     return shape
   }

@@ -1,0 +1,252 @@
+#demo5 {
+  .djs-palette.two-column.open {
+    /* width: 110px; */
+    height: calc(100% - 35px);
+    overflow-y: auto;
+    position: absolute;
+    /* padding: 20px 30px; */
+    top: 35px;
+    left: 0;
+  }
+
+  /* 没用到的功能---start */
+  .bpmn-icon-start-event-message,
+  .bpmn-icon-start-event-timer,
+  .bpmn-icon-start-event-condition,
+  .bpmn-icon-start-event-signal,
+  .bpmn-icon-default-flow,
+  .bpmn-icon-gateway-eventbased,
+  .bpmn-icon-send,
+  .bpmn-icon-receive,
+  .bpmn-icon-manual,
+  .bpmn-icon-business-rule,
+  .bpmn-icon-service,
+  .bpmn-icon-script,
+  .bpmn-icon-call-activity,
+  .bpmn-icon-subprocess-collapsed,
+  .bpmn-icon-loop-marker,
+  .bpmn-icon-end-event-message,
+  .bpmn-icon-end-event-escalation,
+  .bpmn-icon-end-event-error,
+  .bpmn-icon-end-event-compensation,
+  .bpmn-icon-end-event-signal,
+  .bpmn-icon-end-event-terminate,
+  /* 没用到的功能---end */
+  .canvas>div>a,
+  [data-group=tools],
+  .bpmn-icon-intermediate-event-none,
+  .bpmn-icon-task,
+  .bpmn-icon-subprocess-expanded,
+  .bpmn-icon-data-object,
+  .bpmn-icon-data-store,
+  .bpmn-icon-group,
+  .bpmn-icon-participant,
+  .bpmn-icon-text-annotation {
+    display: none !important;
+  }
+
+  .djs-popup,
+  .djs-palette {
+    width: 126px;
+    left: 0;
+    top: 40px;
+    border: none;
+  }
+
+  .djs-palette .entry,
+  .djs-palette .djs-palette-toggle {
+    margin-top: 30px;
+  }
+
+
+  .djs-palette-entries .bpmn-icon-start-event-none:before,
+  .djs-palette-entries .bpmn-icon-end-event-none:before,
+  .djs-palette-entries .bpmn-icon-gateway-none:before,
+  .djs-palette-entries .bpmn-icon-user-task:before {
+    font-size: 80px;
+    cursor: pointer;
+  }
+
+  .djs-palette .entry,
+  .djs-palette .djs-palette-toggle {
+    width: 120px;
+    height: 80px;
+  }
+
+  .djs-palette-entries .bpmn-icon-end-event-none:before,
+  .djs-palette-entries .bpmn-icon-start-event-none:before {
+    width: 78px;
+    height: 78px;
+    text-align: center;
+    border-radius: 50%;
+  }
+
+  .djs-palette-entries .bpmn-icon-end-event-none:before {
+    width: 78px;
+    height: 78px;
+  }
+
+
+  .djs-palette-entries .bpmn-icon-end-event-none:before {
+    background-color: #CBFCE3;
+    border: 1px solid #14CE67;
+  }
+
+  .djs-palette-entries .bpmn-icon-start-event-none,
+  .djs-palette-entries .bpmn-icon-end-event-none,
+  .djs-palette-entries .bpmn-icon-gateway-none,
+  .djs-palette-entries .bpmn-icon-user-task {
+    position: relative;
+  }
+
+  .djs-palette-entries .bpmn-icon-start-event-none::after {
+    content: "开始";
+  }
+
+  .djs-palette-entries .bpmn-icon-end-event-none::after {
+    content: "结束";
+  }
+
+  .djs-palette-entries .bpmn-icon-gateway-none::after {
+    content: "网关";
+  }
+
+  .djs-palette-entries .bpmn-icon-user-task::after {
+    content: "用户任务";
+  }
+
+  .djs-palette-entries .bpmn-icon-start-event-none::after,
+  .djs-palette-entries .bpmn-icon-end-event-none::after,
+  .djs-palette-entries .bpmn-icon-gateway-none::after,
+  .djs-palette-entries .bpmn-icon-user-task::after {
+    position: absolute;
+    font-size: 12px;
+    top: 50%;
+    left: 50%;
+    color: #333 !important;
+    transform: translate(-50%, -50%);
+  }
+
+  .djs-palette-entries .bpmn-icon-gateway-none::after {
+    top: 48%;
+    left: 50%;
+  }
+
+  .djs-palette-entries .bpmn-icon-user-task::after {
+    top: 41%;
+    left: 50%;
+  }
+
+  .djs-palette-entries .bpmn-icon-start-event-none:before {
+    background-color: #D6F0FC;
+    border: 1px solid #0F8CE9;
+  }
+
+  .djs-palette-entries .bpmn-icon-gateway-none {
+    width: 120px;
+    height: 80px;
+    /* transform: rotate(45deg); */
+
+  }
+
+  .djs-popup .bpmn-icon-gateway-xor:before,
+  .djs-popup .bpmn-icon-gateway-parallel:before,
+  .djs-popup .bpmn-icon-gateway-or:before,
+  .djs-popup .bpmn-icon-gateway-complex:before,
+  .djs-popup .bpmn-icon-gateway-eventbased:before,
+  .djs-context-pad .bpmn-icon-gateway-none:before {
+    color: #FAD37E;
+  }
+
+  .djs-palette-entries .bpmn-icon-gateway-none:before {
+    /* color: #FAD37E;
+    margin-top: -8px;
+    margin-left: -8px;*/
+    width: 55px;
+    height: 55px;
+    margin-top: 10px;
+    transform: rotate(45deg);
+    border: 1px solid #FAD37E;
+    background-color: #FFF1DD;
+  }
+
+
+
+  .djs-palette-entries .bpmn-icon-user-task:before {
+    background-color: #F2E8FA;
+    height: 65px;
+    line-height: 65px;
+    border-radius: 20px;
+    border: 1px solid #B483E6;
+  }
+
+  .bpmn-icon-user-task:before,
+  .bpmn-icon-user:before {
+    color: #B483E6;
+  }
+
+  .djs-palette .bpmn-icon-user-task:before {
+    color: rgba(0, 0, 0, 0);
+  }
+
+  .djs-popup-body .bpmn-icon-start-event-none:before,
+  .djs-popup-body .bpmn-icon-start-event-message:before,
+  .djs-popup-body .bpmn-icon-start-event-timer:before,
+  .djs-popup-body .bpmn-icon-start-event-condition:before,
+  .djs-popup-body .bpmn-icon-start-event-signal:before {
+    color: #0F8CE9;
+
+  }
+
+  .djs-palette .bpmn-icon-start-event-none:before {
+    color: rgba(0, 0, 0, 0)
+  }
+
+  .djs-context-pad .bpmn-icon-end-event-none:before,
+  .djs-popup-body .bpmn-icon-end-event-none:before,
+  .djs-popup-body .bpmn-icon-end-event-message:before,
+  .djs-popup-body .bpmn-icon-end-event-escalation:before,
+  .djs-popup-body .bpmn-icon-end-event-error:before,
+  .djs-popup-body .bpmn-icon-end-event-compensation:before,
+  .djs-popup-body .bpmn-icon-end-event-signal:before,
+  .djs-popup-body .bpmn-icon-end-event-terminate:before {
+    color: #14CE67;
+
+  }
+
+  .djs-palette .bpmn-icon-end-event-none:before {
+    color: rgba(0, 0, 0, 0)
+  }
+
+  .bpmn-icon-gateway-none:before {
+    /* color: #FAD37E; */
+    color: rgba(0, 0, 0, 0);
+  }
+
+  .bpmn-icon-screw-wrench:before {
+    color: #0034FF;
+  }
+
+  .bpmn-icon-trash:before {
+    color: red;
+  }
+
+  .bpmn-icon-connection-multi:before {
+    color: #8E909B;
+  }
+
+  .djs-label {
+    fill: #333 !important;
+  }
+
+  /* .bpmn-icon-loop-marker,循环 */
+  .bpmn-icon-parallel-mi-marker,
+  .bpmn-icon-sequential-mi-marker {
+    color: #B483E6;
+  }
+
+  .djs-popup .djs-popup-header .entry.active {
+    color: rgb(255, 116, 0);
+  }
+
+}

@@ -284,9 +284,6 @@
   };
 </script>
 <style lang="less">
- @import "./bpmn-js-custom/bpmn-js-custom.css";
-</style>
-<style lang="less">
   /*左边工具栏以及编辑节点的样式*/
   @import "bpmn-js/dist/assets/diagram-js.css";
   @import "bpmn-js/dist/assets/bpmn-font/css/bpmn.css";
@@ -295,7 +292,7 @@
   /*右边工具栏样式*/
   /*@import "bpmn-js-properties-panel/dist/assets/bpmn-js-properties-panel.css";*/
   /*引入自定义css*/
-
+ @import "./bpmn-js-custom/bpmn-js-custom.css";
   .containers {
     position: absolute;
     background-color: #ffffff;
