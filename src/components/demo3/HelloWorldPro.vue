@@ -1,6 +1,6 @@
 <template>
     <div id="demo3" class="containers" ref="content">
-        <div style="margin-top: 10px; text-align: center">
+        <div class="btn-box">
             <el-button @click="open">说明</el-button>
         </div>
         <div class="canvas" ref="canvas"></div>
@@ -333,9 +333,15 @@ export default {
     },
 };
 </script>
-<style lang="less">
+<style lang="less" scoped>
 //自定义样式
 @import "./css/app.css";
+.btn-box{
+    position: absolute;
+    left: 50%;
+    top: 0;
+    z-index: 200;
+}
 </style>
 <style lang="less">
 /*左边工具栏以及编辑节点的样式*/

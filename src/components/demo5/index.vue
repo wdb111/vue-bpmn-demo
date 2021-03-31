@@ -246,7 +246,7 @@ export default {
 </style>
 <style lang="less" scoped>
 .containerBox {
-    height: 100%;
+    // height: 100%;
 }
 .containerBox .header {
     height: 50px;

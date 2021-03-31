@@ -6,15 +6,15 @@
         >
             bpmn的使用
         </div>
-        <div class="btn-box">
-            <el-button @click="events">所有可监听事件</el-button>
-            <el-button @click="click_one">基础引用</el-button>
-            <el-button @click="click_two">普通自定义右侧菜单</el-button>
-            <el-button @click="click_three">通过图片自定义样式</el-button>
-            <el-button @click="click_four">改变源码自定义样式</el-button>
-            <el-button @click="click_five">不改变源码的自定义样式</el-button>
-        </div>
-        <router-view></router-view>
+        <el-tabs v-model="activeName" @tab-click="handleClick">
+            <el-tab-pane label="所有可监听事件" name="/events"></el-tab-pane>
+            <el-tab-pane label="基础引用" name="/"></el-tab-pane>
+            <el-tab-pane label="自定义右侧菜单" name="/demo2"></el-tab-pane>
+            <el-tab-pane label="通过图片自定义样式" name="/demo3"></el-tab-pane>
+            <el-tab-pane label="改变源码自定义样式" name="/demo4"></el-tab-pane>
+            <el-tab-pane label="不改变源码自定义样式" name="/demo5"></el-tab-pane>
+        </el-tabs>
+        <router-view class="box"></router-view>
     </div>
 </template>
 
@@ -22,27 +22,15 @@
 export default {
     name: "Index",
     data() {
-        return {};
+        return {
+            activeName: "/events",
+        };
     },
     methods: {
-        events() {
-            this.$router.push("/events");
-        },
-        click_one() {
-            this.$router.push("/");
-        },
-        click_two() {
-            this.$router.push("/demo2");
-        },
-        click_three() {
-            this.$router.push("./demo3");
-        },
-        click_four() {
-            this.$router.push("./demo4");
-        },
-        click_five() {
-            this.$router.push("./demo5");
-        },
+        handleClick(tab) {
+            console.log(tab.name);
+            this.$router.push(tab.name)
+        }
     },
 };
 </script>
@@ -55,5 +43,9 @@ export default {
     .btn-box {
         text-align: center;
     }
+}
+.box{
+    height: calc(~'100% - 104px');
+    overflow-y: auto;
 }
 </style>
